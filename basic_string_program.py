@@ -8,6 +8,30 @@ print(string2)
 string3='''Hello world'''
 print(string3)
 
+
+
+
+
+
+
+
+#Slicing techniques
+print("Slicing Techniques:\n")
+text = "HELLO"
+
+print(text[0])  
+print(text[2]) 
+print(text[-1])
+print(text[1:4])
+print(text[1:])
+print(text[:])
+
+
+
+
+
+
+
 #string Functions:
 test_string = "Hello World"
 print("Test string is:", test_string)
@@ -88,31 +112,50 @@ print("20.check if all characters are uppercase:", test_string.isupper())
 # 5.count the total no of vowels in the entire text
 # 6.sort the string with conversion of original string into the reverse ascending order (first reverse and then ascending)
 
-from collections import Counter
-
-# Input from user
-text = input("Enter your text to analyse :\n")
+# Input text from user
+text = input("Enter your text to analyse:\n")
 
 # 1. Total number of words
 words = text.split()
 total_words = len(words)
+print(f"\n1. Total number of words: {total_words}")
 
 # 2. Total number of spaces
 total_spaces = text.count(' ')
+print(f"2. Total number of spaces: {total_spaces}")
 
 # 3. Frequency of each word (case insensitive)
-word_freq = Counter(word.lower() for word in words)
+word_freq = {}
+for word in words:
+    word_lower = word.lower()
+    if word_lower in word_freq:
+        word_freq[word_lower] += 1
+    else:
+        word_freq[word_lower] = 1
+
+print("3. Frequency of each word:")
+for word, count in word_freq.items():
+    print(f"   {word}: {count}")
 
 # 4. Top 3 most frequent words
-top_3_words = word_freq.most_common(3)
+sorted_freq = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
+print("\n4. Top 3 most frequent words:")
+for i in range(min(3, len(sorted_freq))):
+    print(f"   {sorted_freq[i][0]}: {sorted_freq[i][1]}")
 
-# 5. Count total vowels in the text
+# 5. Count total number of vowels in the entire text
 vowels = "aeiouAEIOU"
-vowel_count = sum(1 for char in text if char in vowels)
+vowel_count = 0
+for char in text:
+    if char in vowels:
+        vowel_count += 1
+print(f"\n5. Total number of vowels: {vowel_count}")
 
-# 6. Sort the reversed string in ascending order
+# 6. Reverse string and then sort it in ascending order
 reversed_text = text[::-1]
-sorted_reversed_text = ''.join(sorted(reversed_text))
+sorted_reversed = ''.join(sorted(reversed_text))
+print("\n6. Sorted reversed string (ascending after reverse):")
+print(sorted_reversed)
 
 # Output
 print("\n--- Text Analysis Result ---")
@@ -159,8 +202,6 @@ print(f"1. Unique words in Paragraph 1:\n{unique_words_para1}")
 print(f"2. Unique words in Paragraph 2:\n{unique_words_para2}")
 print(f"3. Common words:\n{common_words}")
 print(f"4. Total count of unique words (combined): {len(total_unique_words)}")
-
-
 
 
 
