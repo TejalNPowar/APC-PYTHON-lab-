@@ -1,0 +1,5 @@
+file =open("samp.txt","r")
+print(file)
+print("File name:",file.name)
+print("Mode: ",file.mode)
+file.close()

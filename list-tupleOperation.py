@@ -1,3 +1,33 @@
+#string operations and string function
+my_string = "Hello, World!"
+print("Original string:", my_string)
+print("First character:", my_string[0])
+print("Last character:", my_string[-1])
+print("Substring (1:5):", my_string[1:5])
+print("Substring (2:):", my_string[2:])
+
+#string using string function
+my_string2 = str(12345)
+print("String created using str function:", my_string2)
+print("String length:", len(my_string))
+print("String in uppercase:", my_string.upper())
+print("String in lowercase:", my_string.lower())
+print("String with whitespace stripped:", my_string.strip())
+print("String with left whitespace stripped:", my_string.lstrip())
+print("String with right whitespace stripped:", my_string.rstrip())
+print("String with 'World' replaced by 'Python':", my_string.replace("World", "Python"))
+print("String split into list:", my_string.split(", "))
+#Slicing techniques
+print("Slicing Techniques:\n")  
+text = "HELLO"
+print("First character:", text[0])
+print("Third character:", text[2])
+print("Last character:", text[-1])
+print("Slice (1:4):", text[1:4])
+print("Slice (1:):", text[1:])
+
+
+#list operations
 my_list=[1,2,3,4,5]
 print("First list element:", my_list[0])
 print("Last list element:", my_list[-1])
